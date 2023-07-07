@@ -22,9 +22,9 @@ public class AlertController {
         return new ResponseEntity<>("Email sent", HttpStatus.OK);
     }
 
-    @PostMapping("triggerSmsAlert/{phoneNumber}")
-    public ResponseEntity<String> sendSMSAlert(@PathVariable String phoneNumber){
-        emailService.sendSmsAlert(phoneNumber);
+    @PostMapping("triggerSmsAlert/{phoneNumber}/{text}")
+    public ResponseEntity<String> sendSMSAlert(@PathVariable String phoneNumber, @PathVariable String text){
+        emailService.sendSmsAlert(phoneNumber, text);
         return new ResponseEntity<>("SMS is delivered", HttpStatus.OK);
     }
 

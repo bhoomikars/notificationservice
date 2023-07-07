@@ -31,12 +31,11 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendSmsAlert(String to) {
-        Twilio.init("AC7d96067e5b157e7e9f9f6542464da441", "8c2f26b7fd72ba6249f6bd36742de913");
+    public void sendSmsAlert(String to, String text) {
+        Twilio.init("AC7d96067e5b157e7e9f9f6542464da441", "92d67d19231e45c3cc11545f3ede2b43");
         Message message = Message.creator(
                         new com.twilio.type.PhoneNumber(to),
-                        new com.twilio.type.PhoneNumber("+15734946076"),
-                        "Hello buddy?")
+                        new com.twilio.type.PhoneNumber("+15734946076"), text)
                 .create();
     }
 
